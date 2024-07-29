@@ -1,6 +1,6 @@
 FROM php:8.3-fpm-alpine3.19
 
-# Install system dependencies and PHP extensions dependencies
+# Instala as dependências e as extensões do PHP
 RUN apk add --no-cache \
     bash \
     curl \
@@ -19,31 +19,32 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install zip \
     && docker-php-ext-install pdo_sqlite
 
-# Get latest Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Set working directory
 WORKDIR /var/www
 
-# Copy the start script
-COPY start.sh /usr/local/bin/start.sh
-
-# Ensure the start script is executable
-RUN chmod +x /usr/local/bin/start.sh
-
-# Copy the default .env.example to .env
-COPY .env.example /var/www/.env
-
-# Copy application source code
 COPY . /var/www
 
-# Install Node.js dependencies and build assets
+COPY .env.example /var/www/.env
+
+RUN composer install
+
+RUN php artisan key:generate
+
+RUN php artisan migrate
+
 RUN npm install && npm run build
 
-# Set permissions for .env
-RUN chmod 644 /var/www/.env
+RUN chmod 644 /var/www/.env \
+    && chown www-data:www-data /var/www/.env
+
+RUN if [ -f /var/www/database/database.sqlite ]; then \
+    chown www-data:www-data /var/www/database/database.sqlite \
+    && chmod 664 /var/www/database/database.sqlite; \
+    fi
+
+RUN chown -R www-data:www-data /var/www/storage
 
 EXPOSE 9000
 
-# Change the entrypoint to the start script
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["docker-php-entrypoint", "php-fpm"]
