@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiClock, FiCar, FiMapPin, FiDroplet, FiDollarSign } from 'react-icons/fi';
+import { FiClock, FiTruck, FiMapPin, FiDroplet, FiDollarSign } from 'react-icons/fi';
 import api from '../../services/api';
 
 const History = () => {
@@ -75,7 +75,7 @@ const History = () => {
           >
             <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
               <div className="flex items-center gap-2 font-semibold text-gray-900 dark:text-gray-100">
-                <FiCar />
+                <FiTruck />
                 {item.brand_name} {item.model} ({item.year})
               </div>
               <div className="text-sm text-gray-500 dark:text-gray-400">

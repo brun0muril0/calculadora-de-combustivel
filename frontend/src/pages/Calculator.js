@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FiCalculator } from 'react-icons/fi';
+import { FiBarChart2 } from 'react-icons/fi';
 import BrandSelector from '../components/Calculator/BrandSelector';
 import CarSelector from '../components/Calculator/CarSelector';
 import DistanceInput from '../components/Calculator/DistanceInput';
@@ -65,7 +65,7 @@ const Calculator = () => {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100 text-center mb-8 flex items-center justify-center gap-3">
-        <FiCalculator />
+        <FiBarChart2 />
         Calculadora de Combustível
       </h1>
 
@@ -96,7 +96,7 @@ const Calculator = () => {
             disabled={!canCalculate}
             className="btn-primary text-lg px-8 py-3 min-w-[200px] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed hover:-translate-y-1 transition-transform duration-200"
           >
-            <FiCalculator size={20} />
+            <FiBarChart2 size={20} />
             {loading ? 'Calculando...' : 'Calcular Consumo'}
           </button>
         </div>

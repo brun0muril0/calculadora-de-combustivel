@@ -1,0 +1,75 @@
+# =========================
+# Node / JavaScript
+# =========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =========================
+# Build / Dist
+# =========================
+dist/
+build/
+.out/
+.next/
+
+# =========================
+# Environment variables
+# =========================
+backend/
+.env.*
+!.env.example
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/
+.idea/
+*.swp
+
+# =========================
+# Docker
+# =========================
+docker-data/
+.docker/
+
+# =========================
+# Coverage / Tests
+# =========================
+coverage/
+
+# =========================
+# Backend specific
+# =========================
+backend/node_modules/
+backend/vendor/
+backend/storage/*.key
+backend/.env
+
+# =========================
+# Frontend specific
+# =========================
+frontend/node_modules/
+frontend/.env
+frontend/dist/
+frontend/build/
+
+# =========================
+# Temporary files
+# =========================
+tmp/
+temp/

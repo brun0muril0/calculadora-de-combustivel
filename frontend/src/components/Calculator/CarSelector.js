@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FiCar, FiDroplet, FiCalendar } from 'react-icons/fi';
+import { FiTruck, FiDroplet, FiCalendar } from 'react-icons/fi';
 import api from '../../services/api';
 
 const CarSelector = ({ selectedBrand, selectedCar, onCarSelect }) => {
@@ -59,7 +59,7 @@ const CarSelector = ({ selectedBrand, selectedCar, onCarSelect }) => {
             onClick={() => onCarSelect(car)}
           >
             <div className="flex items-center gap-2 mb-3">
-              <FiCar className="text-primary-600 dark:text-primary-400" />
+              <FiTruck className="text-primary-600 dark:text-primary-400" />
               <h3 className="font-semibold text-gray-900 dark:text-gray-100">
                 {car.model}
               </h3>

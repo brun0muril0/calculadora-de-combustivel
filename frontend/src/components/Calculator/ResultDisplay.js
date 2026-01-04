@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiDroplet, FiDollarSign, FiCar, FiMapPin } from 'react-icons/fi';
+import { FiDroplet, FiDollarSign, FiTruck, FiMapPin } from 'react-icons/fi';
 
 const ResultDisplay = ({ result }) => {
   if (!result) {
@@ -70,7 +70,7 @@ const ResultDisplay = ({ result }) => {
 
       <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-5 border border-gray-200 dark:border-gray-600">
         <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 mb-4 flex items-center gap-2">
-          <FiCar size={20} />
+          <FiTruck size={20} />
           Informações do Veículo
         </h3>
         
